@@ -1,0 +1,2 @@
+rootProject.name = "ViewBindingDelegationExample"
+include ':app'
