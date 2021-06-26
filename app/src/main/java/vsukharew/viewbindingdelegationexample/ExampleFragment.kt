@@ -6,7 +6,8 @@ import vsukharew.viewbindingdelegationexample.databinding.FragmentExampleBinding
 import vsukharew.viewbindingdelegationexample.viewbinding.fragmentViewBinding
 
 class ExampleFragment : BaseFragment() {
-    override val binding: FragmentExampleBinding by fragmentViewBinding(FragmentExampleBinding::inflate)
+    override val layoutResId: Int = R.layout.fragment_example
+    override val binding: FragmentExampleBinding by fragmentViewBinding(FragmentExampleBinding::bind)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

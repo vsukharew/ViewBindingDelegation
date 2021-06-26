@@ -7,8 +7,9 @@ import vsukharew.viewbindingdelegationexample.databinding.DialogExampleBottomShe
 import vsukharew.viewbindingdelegationexample.viewbinding.fragmentViewBinding
 
 class ExampleBottomSheetDialog : BaseBottomSheetDialog() {
+    override val layoutResId: Int = R.layout.dialog_example_bottom_sheet
     override val binding: DialogExampleBottomSheetBinding by fragmentViewBinding(
-        DialogExampleBottomSheetBinding::inflate
+        DialogExampleBottomSheetBinding::bind
     )
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

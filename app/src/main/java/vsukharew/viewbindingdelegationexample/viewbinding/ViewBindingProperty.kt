@@ -6,9 +6,7 @@ import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
 import androidx.viewbinding.ViewBinding
 
-open class ViewBindingProperty<T : ViewBinding>(
-    protected val bindingInitializer: (LayoutInflater) -> T
-) : LifecycleObserver {
+open class ViewBindingProperty<T : ViewBinding> : LifecycleObserver {
     protected var binding: T? = null
     protected var lifecycle: Lifecycle? = null
 

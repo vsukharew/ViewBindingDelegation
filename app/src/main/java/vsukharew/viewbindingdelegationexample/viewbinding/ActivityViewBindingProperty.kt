@@ -9,9 +9,9 @@ import kotlin.reflect.KProperty
 /**
  * Delegate property for initializing activity layout views
  */
-class ActivityViewBindingProperty<T: ViewBinding>(
-    bindingInitializer: (LayoutInflater) -> T
-) : ViewBindingProperty<T>(bindingInitializer), ReadOnlyProperty<AppCompatActivity, T> {
+class ActivityViewBindingProperty<T : ViewBinding>(
+    private val bindingInitializer: (LayoutInflater) -> T
+) : ViewBindingProperty<T>(), ReadOnlyProperty<AppCompatActivity, T> {
 
     override fun getValue(thisRef: AppCompatActivity, property: KProperty<*>): T {
         return binding ?: run {
