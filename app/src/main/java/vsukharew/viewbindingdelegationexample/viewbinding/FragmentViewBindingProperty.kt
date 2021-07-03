@@ -19,7 +19,6 @@ class FragmentViewBindingProperty<T : ViewBinding>(
                 it.addObserver(this)
                 lifecycle = it
             }
-            thisRef.requireView()
             viewBinder.invoke(thisRef.requireView()).also { binding = it }
         }
     }
