@@ -17,3 +17,10 @@ fun <T : ViewBinding> fragmentViewBinding(
 fun <T : ViewBinding> activityViewBinding(
     bindingInitializer: (LayoutInflater) -> T
 ): ActivityViewBindingProperty<T> = ActivityViewBindingProperty(bindingInitializer)
+
+/**
+ * wrapper above [ViewGroupBindingProperty]
+ */
+fun <T : ViewBinding> viewGroupBinding(
+    viewBinder: (View) -> T
+): ViewGroupBindingProperty<T> = ViewGroupBindingProperty(viewBinder)
