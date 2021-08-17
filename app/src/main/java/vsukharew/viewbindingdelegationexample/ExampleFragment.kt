@@ -11,10 +11,21 @@ class ExampleFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.showBottomsheet.apply {
-            setOnClickListener {
-                ExampleBottomSheetDialog().show(childFragmentManager, null)
+        binding.apply {
+            showBottomsheet.apply {
+                setOnClickListener {
+                    ExampleBottomSheetDialog().show(childFragmentManager, null)
+                }
             }
+            recycler.adapter = ExampleAdapter().apply { users = generateRandomUsers() }
         }
     }
+
+    private fun generateRandomUsers(): List<User> = (1..10).map { User(it, generateRandomString()) }
+
+    private fun generateRandomString(): String =
+        (('a'..'z') + ('A'..'Z') + ('0'..'9'))
+            .shuffled()
+            .take(10)
+            .joinToString(separator = "")
 }
