@@ -2,6 +2,7 @@ package vsukharew.viewbindingdelegationexample
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import vsukharew.viewbindingdelegationexample.ExampleAdapter.ViewHolder
 import vsukharew.viewbindingdelegationexample.databinding.ItemListUsersBinding
@@ -28,6 +29,9 @@ class ExampleAdapter : RecyclerView.Adapter<ViewHolder>() {
             binding.apply {
                 id.text = user.id.toString()
                 name.text = user.name
+                root.setOnClickListener {
+                    Toast.makeText(itemView.context, user.toString(), Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }
