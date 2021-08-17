@@ -7,20 +7,20 @@ import androidx.viewbinding.ViewBinding
 /**
  * wrapper above [FragmentViewBindingProperty]
  */
-fun <T : ViewBinding> fragmentViewBinding(
-    viewBinder: (View) -> T
-): FragmentViewBindingProperty<T> = FragmentViewBindingProperty(viewBinder)
+fun <V : ViewBinding> fragmentViewBinding(
+    viewBinder: (View) -> V
+): FragmentViewBindingProperty<V> = FragmentViewBindingProperty(viewBinder)
 
 /**
  * wrapper above [ActivityViewBindingProperty]
  */
-fun <T : ViewBinding> activityViewBinding(
-    bindingInitializer: (LayoutInflater) -> T
-): ActivityViewBindingProperty<T> = ActivityViewBindingProperty(bindingInitializer)
+fun <V : ViewBinding> activityViewBinding(
+    bindingInitializer: (LayoutInflater) -> V
+): ActivityViewBindingProperty<V> = ActivityViewBindingProperty(bindingInitializer)
 
 /**
  * wrapper above [ViewGroupBindingProperty]
  */
-fun <T : ViewBinding> viewGroupBinding(
-    viewBinder: (View) -> T
-): ViewGroupBindingProperty<T> = ViewGroupBindingProperty(viewBinder)
+fun <V : ViewBinding> viewGroupBinding(
+    viewBinder: (View) -> V
+): ViewGroupBindingProperty<V> = ViewGroupBindingProperty(viewBinder)
