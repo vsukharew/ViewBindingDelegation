@@ -1,4 +1,4 @@
-package vsukharew.viewbindingdelegationexample.viewbinding
+package vsukharew.viewbindingdelegation
 
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -9,7 +9,7 @@ import kotlin.reflect.KProperty
 /**
  * Delegate property for initializing fragment layout views
  */
-class FragmentViewBindingProperty<V :ViewBinding>(
+class FragmentViewBindingProperty<V : ViewBinding>(
     private val viewBinder: (View) -> V
 ) : ViewBindingProperty<V>(), ReadOnlyProperty<Fragment, V> {
 

@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import vsukharew.viewbindingdelegationexample.databinding.DialogExampleBottomSheetBinding
-import vsukharew.viewbindingdelegationexample.viewbinding.fragmentViewBinding
+import vsukharew.viewbindingdelegation.fragmentViewBinding
 
 class ExampleBottomSheetDialog : BaseBottomSheetDialog() {
     override val layoutResId: Int = R.layout.dialog_example_bottom_sheet

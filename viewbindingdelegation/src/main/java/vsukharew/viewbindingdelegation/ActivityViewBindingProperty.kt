@@ -1,4 +1,4 @@
-package vsukharew.viewbindingdelegationexample.viewbinding
+package vsukharew.viewbindingdelegation
 
 import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
@@ -9,7 +9,7 @@ import kotlin.reflect.KProperty
 /**
  * Delegate property for initializing activity layout views
  */
-class ActivityViewBindingProperty<V :ViewBinding>(
+class ActivityViewBindingProperty<V : ViewBinding>(
     private val bindingInitializer: (LayoutInflater) -> V
 ) : ViewBindingProperty<V>(), ReadOnlyProperty<AppCompatActivity, V> {
 

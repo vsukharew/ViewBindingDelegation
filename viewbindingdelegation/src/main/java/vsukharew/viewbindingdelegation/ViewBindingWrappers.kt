@@ -1,4 +1,4 @@
-package vsukharew.viewbindingdelegationexample.viewbinding
+package vsukharew.viewbindingdelegation
 
 import android.view.LayoutInflater
 import android.view.View
@@ -9,14 +9,16 @@ import androidx.viewbinding.ViewBinding
  */
 fun <V : ViewBinding> fragmentViewBinding(
     viewBinder: (View) -> V
-): FragmentViewBindingProperty<V> = FragmentViewBindingProperty(viewBinder)
+): FragmentViewBindingProperty<V> =
+    FragmentViewBindingProperty(viewBinder)
 
 /**
  * wrapper above [ActivityViewBindingProperty]
  */
 fun <V : ViewBinding> activityViewBinding(
     bindingInitializer: (LayoutInflater) -> V
-): ActivityViewBindingProperty<V> = ActivityViewBindingProperty(bindingInitializer)
+): ActivityViewBindingProperty<V> =
+    ActivityViewBindingProperty(bindingInitializer)
 
 /**
  * wrapper above [ViewGroupBindingProperty]

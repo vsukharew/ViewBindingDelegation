@@ -3,7 +3,7 @@ package vsukharew.viewbindingdelegationexample
 import android.os.Bundle
 import android.view.View
 import vsukharew.viewbindingdelegationexample.databinding.FragmentExampleBinding
-import vsukharew.viewbindingdelegationexample.viewbinding.fragmentViewBinding
+import vsukharew.viewbindingdelegation.fragmentViewBinding
 
 class ExampleFragment : BaseFragment() {
     override val layoutResId: Int = R.layout.fragment_example

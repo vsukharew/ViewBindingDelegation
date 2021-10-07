@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import vsukharew.viewbindingdelegationexample.databinding.ActivityMainBinding
-import vsukharew.viewbindingdelegationexample.viewbinding.activityViewBinding
+import vsukharew.viewbindingdelegation.activityViewBinding
 
 class MainActivity : AppCompatActivity() {
     private val binding: ActivityMainBinding by activityViewBinding(ActivityMainBinding::inflate)

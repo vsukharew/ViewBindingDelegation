@@ -5,8 +5,9 @@ import android.util.AttributeSet
 import android.view.View
 import android.widget.FrameLayout
 import android.widget.Toast
+import androidx.lifecycle.ViewTreeLifecycleOwner
 import vsukharew.viewbindingdelegationexample.databinding.ViewExampleCustomBinding
-import vsukharew.viewbindingdelegationexample.viewbinding.viewGroupBinding
+import vsukharew.viewbindingdelegation.viewGroupBinding
 
 class ExampleCustomView @JvmOverloads constructor(
     context: Context,
@@ -21,5 +22,6 @@ class ExampleCustomView @JvmOverloads constructor(
         binding.button.setOnClickListener {
             Toast.makeText(context, "Custom view clicked", Toast.LENGTH_SHORT).show()
         }
+
     }
 }
