@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ViewBindingDelegation - Sample</string>
+    <string name="main_activity_example_text">Main Activity</string>
+    <string name="main_activity_add_fragment_btn">Add fragment</string>
+    <string name="example_fragment_example_text">Example Fragment</string>
+    <string name="example_fragment_show_bottom_sheet_btn">Show bottomsheet</string>
+    <string name="bottom_sheet_camera_text">Camera</string>
+    <string name="bottom_sheet_gallery_text">Gallery</string>
+</resources>
