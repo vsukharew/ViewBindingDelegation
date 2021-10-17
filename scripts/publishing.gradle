@@ -1,6 +1,6 @@
-task androidSourcesJar(type: Jar) {
-    classifier = 'sources'
-    from android.sourceSets.main.java.source
+tasks.register("androidSourcesJar", Jar) {
+    from android.sourceSets.main.java.srcDirs
+    archiveClassifier.set('sources')
 }
 
 artifacts {
@@ -10,7 +10,6 @@ artifacts {
 apply plugin: 'maven-publish'
 apply plugin: 'signing'
 apply from: '../dependencies.gradle'
-
 
 ext["signing.keyId"] = ''
 ext["signing.password"] = ''
@@ -38,21 +37,20 @@ if (secretPropsFile.exists()) {
 afterEvaluate {
     publishing {
         publications {
-            release(MavenPublication) {
+            releaseAar(MavenPublication) {
+                from components.release
+                artifact androidSourcesJar
+
                 // The coordinates of the library, being set from variables that
                 // we'll set up in a moment
                 groupId versions.library.publishGroupId
                 artifactId versions.library.publishArtifactId
                 version versions.library.versionName
 
-                // Two artifacts, the `aar` and the sources
-                artifact("$buildDir/outputs/aar/${project.getName()}-release.aar")
-                artifact androidSourcesJar
-
                 // Self-explanatory metadata for the most part
                 pom {
                     name = versions.library.publishArtifactId
-                    description = 'A completely type-safe and multitype RecyclerView Adapter'
+                    description = 'Non-nullable and non-leakable android view bindings'
                     // If your project has a dedicated site, use its URL here
                     url = 'https://github.com/vsukharew/viewbindingdelegation'
                     licenses {
@@ -73,18 +71,6 @@ afterEvaluate {
                         connection = 'scm:git:github.com/vsukharew/viewbindingdelegation'
                         developerConnection = 'scm:git:ssh://github.com/vsukharew/viewbindingdelegation'
                         url = 'https://github.com/vsukharew/viewbindingdelegation/tree/master'
-                    }
-                    // A slightly hacky fix so that your POM will include any transitive dependencies
-                    // that your library builds upon
-                    withXml {
-                        def dependenciesNode = asNode().appendNode('dependencies')
-
-                        project.configurations.implementation.allDependencies.each {
-                            def dependencyNode = dependenciesNode.appendNode('dependency')
-                            dependencyNode.appendNode('groupId', it.group)
-                            dependencyNode.appendNode('artifactId', it.name)
-                            dependencyNode.appendNode('version', it.version)
-                        }
                     }
                 }
             }
@@ -111,8 +97,8 @@ afterEvaluate {
             }
         }
     }
+    signing {
+        sign publishing.publications
+    }
 }
 
-signing {
-    sign publishing.publications
-}
