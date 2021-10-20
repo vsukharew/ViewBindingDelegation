@@ -19,6 +19,7 @@ android {
 
 dependencies {
     ...
+    // notice if you use version 1.0.0, then you have to add @aar after the version number
     implementation 'io.github.vsukharew:viewbindingdelegation:x.y.z'
     ...
 }
