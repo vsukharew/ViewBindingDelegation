@@ -1,22 +1,21 @@
 ext {
     versions = [
-            library : [
+            library           : [
                     publishGroupId   : 'io.github.vsukharew',
                     publishArtifactId: 'viewbindingdelegation',
                     versionName      : "1.0.2",
                     versionCode      : 1,
             ],
-            sample : [
+            sample            : [
                     versionName: "1.0",
                     versionCode: 1,
             ],
             androidx          : [
-                    'appCompat': '1.3.1',
+                    'appCompat': '1.4.1',
+                    'ktx'      : '1.7.0',
+                    'material' : '1.6.0',
             ],
             mavenPublishPlugin: '0.13.0',
             dokka             : '1.4.10.2'
-    ]
-    androidx = [
-            appCompat: "androidx.appcompat:appcompat:${versions.androidx.appCompat}"
     ]
 }
