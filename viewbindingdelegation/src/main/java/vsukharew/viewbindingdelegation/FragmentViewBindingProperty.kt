@@ -7,7 +7,7 @@ import kotlin.properties.ReadOnlyProperty
 import kotlin.reflect.KProperty
 
 /**
- * Delegate property for initializing fragment layout views
+ * Property delegate for initializing fragment's layout views
  */
 class FragmentViewBindingProperty<V : ViewBinding>(
     private val viewBinder: (View) -> V
