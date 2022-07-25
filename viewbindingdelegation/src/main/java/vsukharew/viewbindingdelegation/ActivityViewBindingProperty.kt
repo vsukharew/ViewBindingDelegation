@@ -7,7 +7,7 @@ import kotlin.properties.ReadOnlyProperty
 import kotlin.reflect.KProperty
 
 /**
- * Delegate property for initializing activity layout views
+ * Property delegate for initializing activity's layout views
  */
 class ActivityViewBindingProperty<V : ViewBinding>(
     private val bindingInitializer: (LayoutInflater) -> V

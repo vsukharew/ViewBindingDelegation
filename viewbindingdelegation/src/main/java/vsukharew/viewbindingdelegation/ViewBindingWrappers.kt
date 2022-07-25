@@ -34,9 +34,5 @@ fun <V : ViewBinding> viewGroupBinding(
  * This method uses reflection for property delegate creation
  */
 inline fun <reified V : ViewBinding> viewGroupBinding(): ReadOnlyProperty<ViewGroup, V> {
-    return ReadOnlyProperty { thisRef, _ ->
-        V::class.java
-            .getMethod("inflate", LayoutInflater::class.java, ViewGroup::class.java)
-            .invoke(null, LayoutInflater.from(thisRef.context), thisRef) as V
-    }
+    return ViewGroupReflectionBindingProperty(V::class.java)
 }
