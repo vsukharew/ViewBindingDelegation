@@ -3,7 +3,7 @@ ext {
             library           : [
                     publishGroupId   : 'io.github.vsukharew',
                     publishArtifactId: 'viewbindingdelegation',
-                    versionName      : "1.0.3",
+                    versionName      : "1.0.4",
                     versionCode      : 1,
             ],
             sample            : [
