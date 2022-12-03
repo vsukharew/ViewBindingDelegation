@@ -14,9 +14,10 @@ class ExampleCustomView @JvmOverloads constructor(
     defStyleAttr: Int = 0
 ) : FrameLayout(context, attrs, defStyleAttr) {
 
-    private val binding: ViewExampleCustomBinding by viewGroupBinding()
+    private val binding: ViewExampleCustomBinding by viewGroupBinding(ViewExampleCustomBinding::bind)
 
     init {
+        View.inflate(context, R.layout.view_example_custom, this)
         binding.button.setOnClickListener {
             Toast.makeText(context, "Custom view clicked", Toast.LENGTH_SHORT).show()
         }
