@@ -10,15 +10,13 @@ import kotlin.reflect.KProperty
  * Property delegate for initializing fragment's layout views
  */
 class FragmentViewBindingProperty<V : ViewBinding>(
-    private val viewBinder: (View) -> V
-) : ViewBindingProperty<V>(), ReadOnlyProperty<Fragment, V> {
+    private val viewBinder: (View) -> V,
+    onDestroyView: (V) -> Unit
+) : ViewBindingProperty<V>(onDestroyView), ReadOnlyProperty<Fragment, V> {
 
     override fun getValue(thisRef: Fragment, property: KProperty<*>): V {
         return binding ?: run {
-            thisRef.viewLifecycleOwner.lifecycle.let {
-                it.addObserver(this)
-                lifecycle = it
-            }
+            thisRef.viewLifecycleOwner.lifecycle.addObserver(this)
             viewBinder.invoke(thisRef.requireView()).also { binding = it }
         }
     }

@@ -8,21 +8,24 @@ import androidx.viewbinding.ViewBinding
  * wrapper above [FragmentViewBindingProperty]
  */
 fun <V : ViewBinding> fragmentViewBinding(
-    viewBinder: (View) -> V
+    viewBinder: (View) -> V,
+    onDestroyView: (V) -> Unit = {}
 ): FragmentViewBindingProperty<V> =
-    FragmentViewBindingProperty(viewBinder)
+    FragmentViewBindingProperty(viewBinder, onDestroyView)
 
 /**
  * wrapper above [ActivityViewBindingProperty]
  */
 fun <V : ViewBinding> activityViewBinding(
-    bindingInitializer: (LayoutInflater) -> V
+    bindingInitializer: (LayoutInflater) -> V,
+    onDestroyView: (V) -> Unit = {}
 ): ActivityViewBindingProperty<V> =
-    ActivityViewBindingProperty(bindingInitializer)
+    ActivityViewBindingProperty(bindingInitializer, onDestroyView)
 
 /**
  * wrapper above [ViewGroupBindingProperty]
  */
 fun <V : ViewBinding> viewGroupBinding(
-    viewBinder: (View) -> V
-): ViewGroupBindingProperty<V> = ViewGroupBindingProperty(viewBinder)
+    viewBinder: (View) -> V,
+    onDestroyView: (V) -> Unit = {}
+): ViewGroupBindingProperty<V> = ViewGroupBindingProperty(viewBinder, onDestroyView)

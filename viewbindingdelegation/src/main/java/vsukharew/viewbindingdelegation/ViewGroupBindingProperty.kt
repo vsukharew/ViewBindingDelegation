@@ -11,8 +11,9 @@ import kotlin.reflect.KProperty
  * Property delegate for initializing custom views' layout. Uses no reflection
  */
 class ViewGroupBindingProperty<V : ViewBinding>(
-    private val viewBinder: (View) -> V
-) : ViewBindingProperty<V>(), ReadOnlyProperty<ViewGroup, V> {
+    private val viewBinder: (View) -> V,
+    onDestroyView: (V) -> Unit
+) : ViewBindingProperty<V>(onDestroyView), ReadOnlyProperty<ViewGroup, V> {
 
     override fun getValue(thisRef: ViewGroup, property: KProperty<*>): V {
         return viewBinder.invoke(thisRef).also { binding = it }
